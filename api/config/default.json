@@ -1,0 +1,35 @@
+{
+  "app": {
+    "port": "4200"
+  },
+  "products": {
+    "item_1": {
+      "finalPrice": false,
+      "minimum": 2,
+      "addQuanity": false,
+      "percentOnSingle": false,
+      "percentOnAll": false
+    },
+    "item_2": {
+      "finalPrice": false,
+      "minimum": 4,
+      "addQuanity": false,
+      "percentOnSingle": 100,
+      "percentOnAll": false
+    },
+    "item_3": {
+      "finalPrice": false,
+      "minimum": 2,
+      "addQuanity": false,
+      "percentOnSingle": false,
+      "percentOnAll": 10
+    },
+    "item_4": {
+      "finalPrice": false,
+      "minimum": 2,
+      "addQuanity": 1,
+      "percentOnSingle": false,
+      "percentOnAll": false
+    }
+  }
+}
