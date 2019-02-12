@@ -10,11 +10,9 @@ class Product {
 
   prepare(prod, quantity) {
     const product = prod.product;
-
-    this.minimumQuantity = prod.discount.minimumQuantity;
-    const offer = prod.discount.offer;
+    this.minimumQuantity = prod.offer.minimumQuantity;
+    const offer = prod.offer.rules;
     
-    this.dss = prod.discount;
     this.itemName = product.eventName;
     this.orderedQuantity = quantity;
     this.offeredQuantity = quantity;
@@ -22,7 +20,19 @@ class Product {
     this.price = product.price * quantity;
     this.priceAfterDiscount = this._calculateFinalPrice(offer);
 
-    return this;
+    const order_details = {
+      quantityOrdered: this.orderedQuantity,
+      quantityAfterOffer: this.offeredQuantity,
+      price: this.price,
+      priceAfterDiscount: this.priceAfterDiscount 
+    }
+    this.invoice = {
+      product_details: prod,
+      offer: this.offer,
+      order_details
+    }
+
+    return this.invoice;
   }
 
   _calculateFinalPrice(offer) {
@@ -33,8 +43,8 @@ class Product {
     // Rule 3 - if Offer has % discount on minimum quantity, final price will be returned accordingly.
     // Rule 3 - if Offer has % discount on total quantity, final price will be returned accordingly.
     if (this.orderedQuantity >= this.minimumQuantity) {
-      if (offer.exactPrice) {
-        return this._fixedDiscount(offer.exactPrice);
+      if (offer.fixedDiscount) {
+        return this._fixedDiscount(offer.fixedDiscount);
       }
       if (offer.addExtraQuantity) {
         this._setQuantity(this.orderedQuantity);

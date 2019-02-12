@@ -6,16 +6,27 @@ class ProductController {
     this.productService = productService;
   }
 
+  /**
+   * @param {ExpressRequest} request
+   * @param {ExpressResponse} response
+   * @param {ExpressNext} next
+   * @return {Json}
+   */
   getAllProducts(request, response, next) {
     try {
       const products = this.productService.getAllProducts();
       response.json(products);
-  
     } catch (err) {
       next(err);
     }
   }
 
+  /**
+   * @param {ExpressRequest} request
+   * @param {ExpressResponse} response
+   * @param {ExpressNext} next
+   * @return {Json}
+   */  
   takeOrder(request, response, next) {
     try {
       const { prodId, quantity } = request.body;

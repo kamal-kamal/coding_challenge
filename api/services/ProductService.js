@@ -21,10 +21,10 @@ class ProductService {
     const product = this.getAllProducts().find((item) => item.prodId === id);
     return {
       product,
-      discount: {
+      offer: {
         minimumQuantity: config.get(`products.item_${id}.minimum`),
-        offer: {
-          exactPrice: config.get(`products.item_${id}.finalPrice`),
+        rules: {
+          fixedDiscount: config.get(`products.item_${id}.fixedDiscount`),
           addExtraQuantity: config.get(`products.item_${id}.addQuanity`),
           percentageOnSingle: config.get(`products.item_${id}.percentOnSingle`),
           percentageOnAll: config.get(`products.item_${id}.percentOnAll`)

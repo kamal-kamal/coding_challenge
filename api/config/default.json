@@ -4,28 +4,28 @@
   },
   "products": {
     "item_1": {
-      "finalPrice": false,
-      "minimum": 2,
+      "fixedDiscount": false,
+      "minimum": 5,
       "addQuanity": false,
-      "percentOnSingle": false,
+      "percentOnSingle": 20,
       "percentOnAll": false
     },
     "item_2": {
-      "finalPrice": false,
+      "fixedDiscount": false,
       "minimum": 4,
       "addQuanity": false,
-      "percentOnSingle": 100,
-      "percentOnAll": false
+      "percentOnSingle": false,
+      "percentOnAll": 20
     },
     "item_3": {
-      "finalPrice": false,
+      "fixedDiscount": 1500,
       "minimum": 2,
       "addQuanity": false,
       "percentOnSingle": false,
-      "percentOnAll": 10
+      "percentOnAll": false
     },
     "item_4": {
-      "finalPrice": false,
+      "fixedDiscount": false,
       "minimum": 2,
       "addQuanity": 1,
       "percentOnSingle": false,
